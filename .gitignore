@@ -1,0 +1,16 @@
+# Environment
+.env
+
+# Build artifacts
+/test
+/main
+*.exe
+*.test
+coverage.out
+coverage.html
+
+# Claude Code local session state
+.claude/
+
+# OS
+.DS_Store

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slot Booking</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ---------- Login ---------- -->
+  <div id="login-view">
+    <div class="login-card">
+      <h1>Slot Booking</h1>
+      <p class="hint">No account? We'll create one for you.</p>
+      <div id="login-error"></div>
+      <form id="login-form">
+        <div class="field">
+          <label for="login-name">Name</label>
+          <input type="text" id="login-name" required placeholder="Ada Lovelace" />
+        </div>
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required placeholder="ada@example.com" />
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="not checked, just vibes" />
+        </div>
+        <button type="submit" class="primary" style="width:100%">Log in</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ---------- App shell ---------- -->
+  <div id="app-view" class="hidden">
+    <header class="appbar">
+      <div class="brand">Slot Booking</div>
+      <div class="who">
+        <span id="who-name"></span>
+        <button id="logout-btn" class="secondary">Log out</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button data-tab="setup" class="active">Setup</button>
+      <button data-tab="browse">Browse &amp; Book</button>
+      <button data-tab="upcoming">My Upcoming</button>
+      <button data-tab="manage">Manage Bookings</button>
+    </nav>
+
+    <main>
+      <section id="tab-setup" class="tab-panel"></section>
+      <section id="tab-browse" class="tab-panel hidden"></section>
+      <section id="tab-upcoming" class="tab-panel hidden"></section>
+      <section id="tab-manage" class="tab-panel hidden"></section>
+    </main>
+  </div>
+
+  <!-- ---------- Dummy payment modal ---------- -->
+  <div id="payment-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2>Payment</h2>
+      <p class="muted" id="payment-label"></p>
+      <p class="payment-amount" id="payment-amount"></p>
+      <div id="payment-error"></div>
+      <div class="field">
+        <label>Card number</label>
+        <input type="text" id="pm-card" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="off" />
+        <div class="muted" style="margin-top:4px">Test mode — a card number ending in 0000 simulates a declined payment.</div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Expiry</label>
+          <input type="text" id="pm-expiry" placeholder="MM/YY" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label>CVV</label>
+          <input type="text" id="pm-cvv" placeholder="123" maxlength="4" autocomplete="off" />
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="pm-cancel" class="secondary">Cancel</button>
+        <button id="pm-pay" class="primary">Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
